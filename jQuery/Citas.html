@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<meta http-equiv="Content-Type" content="text/html"/>
+		
+		<link href="formatoin.css" rel="stylesheet" type="text/css">
+		<title>Citas</title><body background="botella.jpg">
+
+		<!-- Definición de biblioteca básica-->
+		<script type="text/javascript" src="js/jquery-3.2.1.js">
+		</script>
+		<!-- Definición de funciones para tablas -->
+		<script type="text/javascript">
+			function creaTabla(){
+			var btn=document.getElementById("btnAgrega");
+			var txtCve = document.getElementById("txtCve");
+			var txtNom = document.getElementById("txtNom");
+			var txtDia = document.getElementById("txtDia");
+			var txtHr = document.getElementById("txtHr");
+			var sContenido = "<table id='tbl' border='1'>";
+				for(i=0; i<3; i++){
+					sContenido = sContenido+"<tr><td>";
+					switch(i){
+						case 0: sContenido = sContenido + "1</td><td>Evila</td><td>15/05/2017</td><td>14:00";
+								break
+						case 1: sContenido = sContenido + "2</td><td>Jorge</td><td>13/12/2017</td><td>11:00";
+								break
+						case 2: sContenido = sContenido + "3</td><td>Diego</td><td>08/01/2018</td><td>16:00";
+								break
+					}
+					sContenido = sContenido+"</td></tr>";
+				}
+				sContenido = sContenido + "</table>"
+				$("#initab").append(sContenido);
+				
+				if (btn!=null && txtCve!=null && txtNom!=null && txtDia!=null && txtHr!=null){
+					btn.disabled = false;
+					txtCve.disabled = false;
+					txtNom.disabled = false;
+					txtDia.disabled = false;
+					txtHr.disabled = false;
+				}
+			}
+			
+			function agrega(cve, nom, dia, hora){
+			var campo1, campo2, campo3, campo4;
+				campo1 = $('<input />').attr({
+							type: "text", 
+							value: cve.value
+						});
+				campo2 = $('<input />').attr({
+							type: "text", 
+							value: nom.value
+						});
+			    campo3 = $('<input />').attr({
+							type: "text", 
+							value: dia.value
+						});
+				campo4 = $('<input />').attr({
+							type: "text", 
+							value: hora.value
+						});
+				linea = $("<tr>");
+				celda1 =  $('<td>').html(campo1);
+				celda2 =  $('<td>').html(campo2);
+				celda3 =  $('<td>').html(campo3);
+				celda4 =  $('<td>').html(campo4);
+				linea.append(celda1, celda2, celda3, celda4);
+				$("#tbl").append(linea);
+			}
+		</script>
+	</head>
+	<center><body bgcolor="pink"></center>
+	<h1>REGISTRAR CITAS</h1>
+		<form>
+			<input type="button" value="Colocar tabla" onclick="creaTabla();this.disabled=true;"/>
+			<br/>
+			<div id="initab">
+			</div>
+			NumeroReg <input type="text" id="txtCve" name="txtCve"  disabled="true"/><br/>
+			Nombre <input type="text" id="txtNom" name="txtNom"  disabled="true"/><br/>
+			Dia <input type="text" id="txtDia" name="txtDia"  disabled="true"/><br/>
+			Hora <input type="text" id="txtHr" name="txtHr"  disabled="true"/><br/>
+			<input id="btnAgrega" type="button" value="Agrega" onclick="agrega(txtCve, txtNom, txtDia, txtHr);" disabled="true"/>
+			<input type="submit" value="Limpiar"/>
+		</form>
+	</body>
+</html>

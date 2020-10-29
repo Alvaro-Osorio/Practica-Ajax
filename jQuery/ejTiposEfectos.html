@@ -1,0 +1,65 @@
+﻿<!--
+Archivo:  ejTiposEfectos.html
+Objetivo: muestra  distintos tipos de efectos predefinidos en jQuery
+Autor:    BAOZ
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"/>
+		<title>Ejemplo efectos</title>
+		<link href="jquery-ui-custom/jquery-ui.css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery-3.2.1.js">
+		</script>
+		<script type="text/javascript" src="jquery-ui-custom/jquery-ui.js">
+		</script>
+		<style>
+			
+		</style>
+		<script type="text/javascript">
+			function aplica(){
+			var sEfecto = "";
+				sEfecto = $("#cmbEfectos").val();
+				//alert("Efecto seleccionado "+sEfecto);
+				
+				$("#elemento").effect(
+								sEfecto, //efecto a aplicar
+								{}, //lista de opciones, aplica sólo a ciertos efectos
+								650, //duración en milisegundos, 400 por omisión
+								function(){ //función a aplicar al término del efecto, opcional
+									setTimeout(function() {
+										$( "#elemento" ).removeAttr( "style" ).hide().fadeIn();
+									}, 1000 )
+								}
+								);
+			}
+		</script>
+	</head>
+	<body>
+		<div style="width:80%; height:380px">
+			<h3 class="ui-widget-header">Contenedor</h3>
+			<div id="elemento" class="ui-widget-content width:70%">
+				<br/><br/><br/>
+				<p>Cualquier cosa</p>
+				<br/><br/>
+			</div>
+		</div>
+		<br/>
+		<select name="cmbEfectos" id="cmbEfectos">
+			<option value="blind">Blind</option>
+			<option value="bounce">Bounce</option>
+			<option value="clip">Clip</option>
+			<option value="drop">Drop</option>
+			<option value="explode">Explode</option>
+			<option value="fade">Fade</option>
+			<option value="fold">Fold</option>
+			<option value="highlight">Highlight</option>
+			<option value="puff">Puff</option>
+			<option value="pulsate">Pulsate</option>
+			<option value="shake">Shake</option>
+			<option value="slide">Slide</option>
+		</select>
+		<button id="btnAplic" class="ui-state-default ui-corner-all"
+				onclick="aplica();">Aplicar</button>
+	</body>
+</html>

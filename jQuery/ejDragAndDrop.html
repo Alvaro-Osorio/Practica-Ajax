@@ -1,0 +1,75 @@
+﻿<!--
+Archivo:  ejDragAndDrop.html
+Objetivo: ejemplo de movimiento simple (drag & drop) con jQuery
+Autor:    BAOZ
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"/>
+		<title>Ejemplo Drag And Drop</title>
+		<link href="jquery-ui-custom/jquery-ui.css" rel="stylesheet">
+		<!--script type="text/javascript" src="js/jquery-3.2.1.js">
+		</script>
+		<script type="text/javascript" src="jquery-ui-custom/jquery-ui.js">
+		</script-->
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="module">
+  import {
+    Draggable,
+    Point2DSpring,
+    Tossable,
+    combineStyleStreams,
+    getPointerEventStreamsFromElement,
+  } from "https://ajax.googleapis.com/ajax/libs/material-motion/0.1.0/material-motion.bundle.js";
+</script>
+		<!--Estilo para áreas de arrastrar y soltar -->
+		<style>
+			#draggable { width: 100px; 
+						height: 100px; 
+						float: left; 
+						margin: 10px 10px 10px 0; }
+			#droppable { width: 150px; 
+						height: 150px; 
+						float: left; 
+						margin: 10px; }
+		</style>
+		<!-- Inicialización de áreas-->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$( "#draggable" ).draggable({
+					stop: function (event, ui){
+						//Obtiene x, y de esquina superior izquierda de origen
+						var pos_actual = $(this).offset();
+						var x = pos_actual.left;
+						var y = pos_actual.top;
+						//obtiene x,y de esquina superior izquierda de destino
+						var pos_destino = $( "#droppable" ).offset();
+						var x_d = pos_destino.left;
+						var y_d = pos_destino.top;
+						var ancho_destino = $( "#droppable" ).width();
+						var alto_destino = $( "#droppable" ).height();
+						if ((x < x_d || x > (x_d+ancho_destino)) ||
+							(y < y_d && y > (y_d+alto_destino)))
+							$( "#droppable" ).removeClass("ui-state-highlight");
+					}
+				});
+				$( "#droppable" ).droppable({
+					drop: function( event, ui ) {
+						$( this ).addClass( "ui-state-highlight" );
+					}
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<div id="draggable" class="ui-widget-content">
+			<p>Para mover</p>
+		</div>
+		<div id="droppable" class="ui-widget-header">
+			<p>Para soltar</p>
+		</div>
+	</body>
+</html>

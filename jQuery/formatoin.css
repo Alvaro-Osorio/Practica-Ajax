@@ -1,0 +1,45 @@
+#contenido{
+color:black;
+font-family:century gothic;
+margin-left:150px;
+}
+
+table{
+  padding: 3px 10px;
+  border: PowderBlue 5px double;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+section{
+color:black;
+font-family:century gothic;
+margin-left:200px;
+	font-weight:bold;
+	font-size: large;
+width:400px;
+text-align:center;
+}
+
+footer{
+	background:pink;
+	width:200px;
+}
+body{
+background:botella.jpg;
+margin-left:100px;
+font-family:century gothic;}
+
+h1{
+color:black;
+font-family:century gothic;
+width: 400px;
+margin-left:80px;
+	font-size: 20px;
+}
+
+header{
+margin-left:280px;
+margin-top:200px;
+font-family:century gothic;
+}

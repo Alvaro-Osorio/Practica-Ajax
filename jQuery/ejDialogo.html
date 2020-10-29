@@ -1,0 +1,52 @@
+﻿<!--
+Archivo:  ejDialogo.html
+Objetivo: ejemplo de uso de diálogo con jQuery
+Autor:    BAOZ
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"/>
+		<title>Ejemplo Di&aacute;logo</title>
+		<!--link href="jquery-ui-custom/jquery-ui.css" rel="stylesheet"-->
+		<!--script type="text/javascript" src="js/jquery-3.2.1.js">
+		</script-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<!--script type="text/javascript" src="jquery-ui-custom/jquery-ui.js">
+		</script-->
+		<!-- Inicialización de diálogo-->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$( "#dlg" ).dialog({
+					autoOpen: false,//probar con true
+					show: {
+						effect: "slide", // probar fold, puff, scale, shake, slide
+						duration: 1000
+					},
+					hide: {
+						effect: "drop", //probar bounce, clip, drop, explode
+						duration: 1000
+					}
+					, modal: true
+				});
+				$( "#btn" ).click(function() { //probar sin boton
+					$( "#dlg" ).dialog( "open" );
+				});
+			});
+
+		</script>
+	</head>
+	<body>
+		<div id="dlg" title="Cabecera">
+			<p>Cualquier cosa</p>
+			<form>
+				<input type="text" name="txtAlgo"/>
+				<input type="button" value="Saluda" onclick="alert(txtAlgo.value);"/>
+			</form>
+			<br/>
+		</div>
+		<input type="button" id="btn" value="Mostrar"/>
+	</body>
+</html>

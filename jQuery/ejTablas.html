@@ -1,0 +1,74 @@
+<!--
+Archivo:  ejTablas.html
+Objetivo: ejemplo de creación de elementos a tiempo de ejecución con jQuery
+Autor:    BAOZ
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"/>
+		<title>Ejemplo Tablas</title>
+
+		<!-- Definición de biblioteca básica-->
+		<script type="text/javascript" src="js/jquery-3.2.1.js">
+		</script>
+		<!-- Definición de funciones para tablas -->
+		<script type="text/javascript">
+			function creaTabla(){
+			var btn=document.getElementById("btnAgrega");
+			var txtCve = document.getElementById("txtCve");
+			var txtNom = document.getElementById("txtNom");
+			var sContenido = "<table id='tbl' border='1'>";
+				for(i=0; i<3; i++){
+					sContenido = sContenido+"<tr><td>";
+					switch(i){
+						case 0: sContenido = sContenido + "1</td><td>Hugo";
+								break
+						case 1: sContenido = sContenido + "2</td><td>Paco";
+								break
+						case 2: sContenido = sContenido + "3</td><td>Luis";
+								break
+					}
+					sContenido = sContenido+"</td></tr>";
+				}
+				sContenido = sContenido + "</table>"
+				$("#initab").append(sContenido);
+				
+				if (btn!=null && txtCve!=null && txtNom!=null){
+					btn.disabled = false;
+					txtCve.disabled = false;
+					txtNom.disabled = false;
+				}
+			}
+			
+			function agrega(cve, nom){
+			var campo1, campo2;
+				campo1 = $('<input />').attr({
+							type: "text", 
+							value: cve.value
+						});
+				campo2 = $('<input />').attr({
+							type: "text", 
+							value: nom.value
+						});
+				linea = $("<tr>");
+				celda1 =  $('<td>').html(campo1);
+				celda2 =  $('<td>').html(campo2);
+				linea.append(celda1, celda2);
+				$("#tbl").append(linea);
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="button" value="Colocar tabla" onclick="creaTabla();this.disabled=true;"/>
+			<br/>
+			<div id="initab">
+			</div>
+			Clave <input type="text" id="txtCve" name="txtCve"  disabled="true"/><br/>
+			Nombre <input type="text" id="txtNom" name="txtNom"  disabled="true"/><br/>
+			<input id="btnAgrega" type="button" value="Agrega" onclick="agrega(txtCve, txtNom);" disabled="true"/>
+			<input type="submit" value="Limpiar"/>
+		</form>
+	</body>
+</html>

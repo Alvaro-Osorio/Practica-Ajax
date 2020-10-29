@@ -1,0 +1,104 @@
+header{
+	font-family: century gothic;
+    color: white;
+	display:block;
+	height: 50px;
+	width: 600px;
+	margin-left: 400px;
+	color: white;
+	font-weight:bold;
+	font-size: large;
+	color:black;
+    text-align:center;
+}
+body
+{
+font-family: century gothic;
+border: 40 px;
+border-color: pink;
+font-weight:bold;
+}
+section{
+	color: black;
+	text-align: center;
+	height: 50px;
+	width: 600px;
+	margin-left: 400px;
+	padding:30px;
+	font-weight:bold;
+	
+
+}
+
+marquee{
+background: #334747  ;
+color: white;}
+
+#top{
+font-size:20px;
+text-align:center;
+
+}
+
+
+footer{
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+	font-size: 20px;
+}
+#areasf{
+color: black;
+margin-left: 200px;
+}
+
+#introduccion{
+		margin-left: 10px;
+		padding: 20px;
+		font-weight:bold;
+}
+
+#mision{
+margin-left: 10px;
+		padding: 20px;
+		font-weight:bold;
+		text-align:center;
+		background:#E1E7E8  ;
+
+}
+
+#valores{
+margin-left: 10px;
+		padding: 20px;
+		font-weight:bold;
+		text-align:center;
+		background:#B3C6CB  ;
+
+
+}
+
+#sucursales{
+background: #7C8283;
+margin-left: 10px;
+		padding: 20px;
+		font-weight:bold;
+		text-align:center;
+}
+#promociones{
+height: 50px;
+	background: #C4A4DC;
+	color:black;
+    text-align:center;
+	width:500px;
+	margin-left: 400px;
+    transition: transform 3s ease-out;
+
+}
+
+#promociones .hover{
+    transform: scale(2,2); /* Otros */
+
+
+
+
+/*padding:	alto del cuadro texto
+/*width: ancho del cuadro de texto.
